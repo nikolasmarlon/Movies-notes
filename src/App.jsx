@@ -1,4 +1,4 @@
-import { MoviePreview } from "./pages/MoviePreview";
+import { MoviePreview } from "./pages/MoviesPreview";
 
 export function App() {
   
