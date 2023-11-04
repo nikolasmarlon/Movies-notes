@@ -1,5 +1,6 @@
-import { Button } from "../../components/Button";
+
 import { Header } from "../../components/Header";
+import { Tag } from "../../components/Tag";
 import { DivContainer } from "./styles";
 
 
@@ -10,7 +11,11 @@ export function MoviePreview(){
             <Header />
             
             <h2>MoviePreview</h2>
-            <Button title="Enviar" loading />
+
+            <Tag title="Ficção Científica" />
+            <Tag title="Drama" />
+            <Tag title="Família" />
+            
         </DivContainer>
     )
 }

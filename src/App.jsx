@@ -1,11 +1,10 @@
 
-import { MoviePreview } from "./pages/MoviesPreview";
+import { MoviePreview } from "./pages/MoviePreview";
 
 export function App() {
   
   return (
-    <>
-      
+    <>      
       <MoviePreview />
     </>
   )
