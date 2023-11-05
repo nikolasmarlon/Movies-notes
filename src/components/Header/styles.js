@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
 
-    padding: 23px 123px;
+    padding: 23px 12%;
 
     /**color: ${( {theme} ) => theme.COLORS.BACKGROUND_800}; */
 
@@ -22,7 +22,7 @@ export const Profile = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
-
+    
 
     > img{
         width: 64px;
@@ -56,7 +56,7 @@ export const Profile = styled.div`
 `
 
 export const Search = styled.input`
-    width: 800px;
+    width: 700px;
     height: 56px;
     padding: 19px 24px;
     border-radius: 10px;

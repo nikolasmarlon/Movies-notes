@@ -1,9 +1,9 @@
 import { SpanContainer } from "./styles";
 
 
-export function Tag({ title }){
+export function Tag({ title , ...rest}){
     return(
-        <SpanContainer>
+        <SpanContainer {...rest}>
             {title}
         </SpanContainer>
     )

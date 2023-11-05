@@ -70,8 +70,7 @@ export const Content = styled.div`
         display: flex;
         align-items: center;        
         gap: 19px;        
-        padding: 0;
-       
+        padding: 0;       
     }
     
     .stars{

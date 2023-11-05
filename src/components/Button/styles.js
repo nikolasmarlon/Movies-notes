@@ -11,6 +11,11 @@ export const ButtonContainer = styled.button`
     padding: 0 16px;
     margin-top: 16px;
     border-radius: 10px;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
     &:disabled{
         opacity: 0.5;
