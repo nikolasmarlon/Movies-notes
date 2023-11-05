@@ -1,6 +1,7 @@
 import { Container } from "./styles";
 import { AiFillStar, AiOutlineStar, AiOutlineClockCircle, AiOutlineArrowLeft} from 'react-icons/ai'
 import { Tag } from "../Tag";
+import { StarRating } from "../StarRating";
 
 export function Movie ({ data, ...rest }) {
     return(
@@ -10,22 +11,18 @@ export function Movie ({ data, ...rest }) {
             <div>
 
                 {
-                    data.note && 
-                    <span>
-                    { data.note }
-                    
-                    < AiOutlineStar />
-                    
-                    </span>
-
-                    
+                    data.note &&                    
+                    <div>
+                        {
+                            <StarRating nota={4} />
+                        }
+                    </div>                    
                 }
             </div>
 
             <p>
                 {data.description}
-            </p>
-        
+            </p>  
 
 
             {

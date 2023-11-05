@@ -4,6 +4,7 @@ import { Header } from "../../components/Header";
 import { AiFillStar, AiOutlineStar, AiOutlineClockCircle, AiOutlineArrowLeft} from 'react-icons/ai'
 import { Tag } from "../../components/Tag";
 import { Content, DivContainer } from "./styles";
+import { StarRating } from "../../components/StarRating";
 
 
 export function MoviePreview(){
@@ -22,11 +23,7 @@ export function MoviePreview(){
                         <div id="classification" >
                             <h1>Interestellar</h1>
                             <div className="stars">
-                                < AiFillStar />
-                                < AiFillStar />
-                                < AiFillStar />
-                                < AiFillStar />
-                                < AiOutlineStar />
+                                <StarRating nota={4} />
                             </div>
                         </div>
 
