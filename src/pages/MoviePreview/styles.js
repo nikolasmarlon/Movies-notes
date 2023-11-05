@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 
-export const  DivContainer = styled.div`
-
+export const  DivContainer = styled.div`   
     width: 100%;
     height: 100vh;
 
@@ -12,16 +11,34 @@ export const  DivContainer = styled.div`
     "header" 
     "content";
 
+    ::-webkit-scrollbar {
+        width: 8px;
+        
+    }   
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: ${( {theme} ) => theme.COLORS.RED_300};
+        border-radius: 10px;   
+        border: 1px solid red;
+    }
+
+    ::-webkit-scrollbar-track-piece:end {
+    
+        margin-bottom: 100px; 
+    }
+
+    ::-webkit-scrollbar-track-piece:start {
+    
+        margin-top: 80px;
+    }
 
     > main {
         grid-area: content;
         overflow-y: scroll;
         width: 85%;
-        margin: 40px auto;
-        min-height: 300px;
-
-       
-       
+        margin: 40px auto;        
+        max-height: 80%;
+        padding-right: 16px;       
     }
 ` 
 
@@ -37,7 +54,6 @@ export const Content = styled.div`
     > p {
         font-size: 16px;
         font-weight: 400;
-
     }
 
     > button:first-child{
