@@ -70,17 +70,11 @@ export const Content = styled.div`
         display: flex;
         align-items: center;        
         gap: 19px;        
-        padding: 0;       
+        padding: 0; 
+        
     }
     
-    .stars{
-        height: 47px;
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        color: ${( {theme} ) => theme.COLORS.RED_300};
-    }
-
+    
     #tags{
         margin-top: 15px;
     }

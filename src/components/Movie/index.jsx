@@ -14,7 +14,7 @@ export function Movie ({ data, ...rest }) {
                     data.note &&                    
                     <div>
                         {
-                            <StarRating nota={4} />
+                            <StarRating nota={4} tamanho={18} />
                         }
                     </div>                    
                 }
