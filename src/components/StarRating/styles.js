@@ -6,11 +6,9 @@ export const StarContainer = styled.div`
   height: 47px;
   
   display: flex;
-  align-items: center;
-  color: ${( {theme} ) => theme.COLORS.RED_300};
-  
-`;
+  align-items: center;  
+`
 
-export const Star = styled.div`
-  color: ${(props) => (props.isFilled ? '${( {theme} ) => theme.COLORS.RED_300}' : 'none')};
-`;
+export const Star = styled.span`
+    color: ${( {theme} ) => theme.COLORS.RED_300};  
+`

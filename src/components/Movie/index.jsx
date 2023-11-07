@@ -7,6 +7,8 @@ export function Movie ({ data, ...rest }) {
     return(
         <Container>
 
+            
+
             <h1>{data.title}</h1>
             <div>
 
