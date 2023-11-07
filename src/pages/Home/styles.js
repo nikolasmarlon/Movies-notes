@@ -30,7 +30,7 @@ export const Container = styled.div`
 
     > main {
         grid-area: content;
-        overflow-y: scroll;
+        overflow-y: auto;
         width: 85%;
         margin: 40px auto;        
         max-height: 80%;
@@ -54,6 +54,9 @@ export const AdicionarFilme = styled.div`
 
 export const Content = styled.div`
 
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 
 
     
