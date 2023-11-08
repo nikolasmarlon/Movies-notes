@@ -12,9 +12,11 @@ export const ButtonContainer = styled.button`
     margin-top: 16px;
     border-radius: 10px;
     font-size: 16px;
+    font-weight: 500;
 
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 
     &:disabled{
