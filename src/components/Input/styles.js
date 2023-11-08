@@ -21,7 +21,7 @@ export const DivContainer = styled.div`
         width: 100%;
         color: ${( {theme} ) => theme.COLORS.GRAY_600}; 
         padding: 18px 16px;
-        background: red;
+        background: transparent;
         border: none;
 
         &:placeholder{
