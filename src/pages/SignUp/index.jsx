@@ -14,7 +14,7 @@ export function SignUp(){
 
                 <h2>Crie sua conta</h2>
                 <Input required type="text" icon={FiUser} placeholder="Nome" />
-                <Input required type="text" icon={FiMail} placeholder="E-mail" />
+                <Input required type="email" icon={FiMail} placeholder="E-mail" />
                 <Input required type="password" icon={FiLock} placeholder="Senha" />
 
                 <Button title="Cadastrar" />
