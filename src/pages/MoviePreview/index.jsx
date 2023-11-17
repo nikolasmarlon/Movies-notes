@@ -1,7 +1,7 @@
 
 import { ButtonText } from "../../components/ButtonText";
 import { Header } from "../../components/Header";
-import { AiFillStar, AiOutlineStar, AiOutlineClockCircle, AiOutlineArrowLeft} from 'react-icons/ai'
+import { AiOutlineClockCircle, AiOutlineArrowLeft} from 'react-icons/ai'
 import { Tag } from "../../components/Tag";
 import { Content, DivContainer } from "./styles";
 import { StarRating } from "../../components/StarRating";
