@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { ButtonText } from "../../components/ButtonText";
+import { Marcador } from "../../components/Marcador";
 import { Input } from "../../components/Input";
 import { Container, Form } from "./styles";
 import { FiArrowLeft } from "react-icons/fi";
@@ -28,7 +28,15 @@ export function New(){
                         <Input type="text" placeholder="Sua nota(de 0 a 5)" />
                     </div>
 
-                        <Textarea type="textarea" placeholder="Observações" />
+                    <Textarea type="textarea" placeholder="Observações" />
+
+                    <div id="marcadores">
+                        <h2>Marcadores</h2>
+
+                        <Marcador value="Ficção científica"  />
+                        <Marcador isNew placeholder="Novo marcador" />
+                    </div>
+
 
                 </Form>
             </main>
