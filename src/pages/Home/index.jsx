@@ -1,8 +1,7 @@
-import { AdicionarFilme, Container, Content } from "./styles";
+import { AdicionarFilme, Container, Content, NewMovie } from "./styles";
 import { Header } from "../../components/Header";
-import { Button } from "../../components/Button";
-import { AiOutlinePlus } from "react-icons/ai";
 import { Movie } from "../../components/Movie";
+import { FiPlus } from "react-icons/fi";
 
 
 export function Home(){
@@ -14,7 +13,10 @@ export function Home(){
                 <AdicionarFilme>
                     <h1>Meus filmes</h1>
 
-                    <Button icon={AiOutlinePlus} title="Adicionar filme" />
+                    <NewMovie to="/new">
+                        <FiPlus />
+                        Adicionar filme
+                    </NewMovie>
                 </AdicionarFilme>
 
                 <Content>

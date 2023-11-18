@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
 
@@ -50,6 +50,29 @@ export const AdicionarFilme = styled.div`
         width: 200px;
     }
 
+`
+
+export const NewMovie = styled(Link)`
+      
+    color: ${( {theme} ) => theme.COLORS.BACKGROUND_800};
+    background-color: ${({theme}) =>  theme.COLORS.RED_300};   
+
+    height: 56px;
+    border: none;
+    padding: 0 16px;
+    margin-top: 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    > svg{
+        font-size: 20px;
+    }
 `
 
 export const Content = styled.div`
