@@ -4,6 +4,7 @@ import { Input } from "../../components/Input";
 import { Container, Form } from "./styles";
 import { FiArrowLeft } from "react-icons/fi";
 import { Textarea } from "../../components/Textarea";
+import { Button} from "../../components/Button";
 
 
 
@@ -33,11 +34,20 @@ export function New(){
                     <div id="marcadores">
                         <h2>Marcadores</h2>
 
-                        <Marcador value="Ficção científica"  />
-                        <Marcador isNew placeholder="Novo marcador" />
+                        <div className="tags">
+                            <Marcador value="Ficção científica"  />
+                            <Marcador value="Ficção"  />
+                            <Marcador value="Terror"  />
+                            <Marcador value="Ação"  />
+                            <Marcador isNew placeholder="Novo marcador" />
+                        </div>
                     </div>
 
 
+                    <div className="botoes">
+                    <Button title="Excluir filme" />
+                    <Button isNew title="Salvar alterações" />
+                    </div>
                 </Form>
             </main>
 
