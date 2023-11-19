@@ -5,6 +5,7 @@ import { Container, Form } from "./styles";
 import { FiArrowLeft } from "react-icons/fi";
 import { Textarea } from "../../components/Textarea";
 import { Button} from "../../components/Button";
+import { Link } from "react-router-dom";
 
 
 
@@ -17,10 +18,10 @@ export function New(){
 
                 <Form>
                     <header>
-                    <a href="#">
+                    <Link to="/">
                         <FiArrowLeft/>
                         Voltar
-                    </a>
+                    </Link>
                         <h1>Novo Filme</h1>
                     </header>
 
