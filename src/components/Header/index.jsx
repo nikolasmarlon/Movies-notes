@@ -1,5 +1,5 @@
 import { HeaderContainer, Profile, Search } from "./styles";
-import { } from 'react-icons/ri'
+
 
 
 export function Header (){
@@ -7,7 +7,7 @@ export function Header (){
         <HeaderContainer>
             <Search type="search" placeholder="Pesquise pelo título" />
 
-            <Profile>
+            <Profile to="/profile">
                 <div>
                     <strong>Nikolas Marlon</strong>
                     <button>sair</button>

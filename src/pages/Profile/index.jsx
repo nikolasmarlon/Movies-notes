@@ -3,15 +3,16 @@ import { Avatar, DivContainer, Form } from "./styles";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { Link } from "react-router-dom";
 
 export function Profile(){
     return(
         <DivContainer>
             <header>
-                <a href="#">
+                <Link to="/">
                     <FiArrowLeft/>
                     Voltar
-                </a>
+                </Link>
             </header>
 
             <Form>
