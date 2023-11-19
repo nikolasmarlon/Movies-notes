@@ -95,4 +95,11 @@ export const Form = styled.form`
     }
 
     
+    > button{
+        width: 50%;
+        float: right;
+    }
+    
+
+    
 `

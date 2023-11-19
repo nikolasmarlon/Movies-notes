@@ -45,10 +45,9 @@ export function New(){
                     </div>
 
 
-                    <div className="botoes">
-                    <Button title="Excluir filme" />
+                                      
                     <Button isNew title="Salvar alterações" />
-                    </div>
+                    
                 </Form>
             </main>
 
