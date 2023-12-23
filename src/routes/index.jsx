@@ -11,7 +11,7 @@ import { AuthRoutes } from "./auth.routes";
 export function Rotas() {
     return(
         <BrowserRouter>
-            <AppRoutes />
+            <AuthRoutes />
         </BrowserRouter>
     )
 }
