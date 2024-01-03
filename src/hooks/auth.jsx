@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 import { api } from "../services/api";
 
@@ -18,7 +18,12 @@ function AuthProvider({children}){
 
             const { user, token } = response.data
 
-            api.defaults.headers.authorization = `Bearer ${token}`
+
+            // trabalha com chave e valor
+            localStorage.setItem("@moviesnotes:user", JSON.stringify(user)) // só aceita texto 
+            localStorage.setItem("@moviesnotes:token", token)
+
+            api.defaults.headers.common['authorization'] = `Bearer ${token}`
             setData({ user, token})
 
 
@@ -29,8 +34,25 @@ function AuthProvider({children}){
                 alert("Não foi possível entrar!")
             }
        }
-
     }
+
+    useEffect(() => {
+        const token = localStorage.getItem("@moviesnotes:token")
+        const user = localStorage.getItem("@moviesnotes:user")
+
+        
+        if(token && user ){
+            api.defaults.headers.common['authorization'] = `Bearer ${token}`
+            
+            setData({
+                token,
+                user: JSON.parse(user)
+            })
+            console.log(user, token)
+        }
+   }, [])
+
+   
     return(
         <AuthContext.Provider value={{ login, user: data.user }}>
             {children}
