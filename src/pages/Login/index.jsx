@@ -2,9 +2,8 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Link } from "react-router-dom";
 
-// contexto
-import { useContext } from "react";
-import { MyContext } from "../../myContext";
+import { useAuth } from "../../hooks/auth";
+
 
 import { Background, DivContainer, Form } from "./styles";
 import { FiLock, FiMail } from 'react-icons/fi'
@@ -13,7 +12,9 @@ import { FiLock, FiMail } from 'react-icons/fi'
 export function Login(){
 
 
-    const dados = useContext(MyContext)
+    const dadosDoContexto = useAuth()
+
+    
    
 
     return(
@@ -26,7 +27,7 @@ export function Login(){
                 <Input required type="text" icon={FiMail} placeholder="E-mail" />
                 <Input required type="password" icon={FiLock} placeholder="Senha" />
 
-                
+                <p>{dadosDoContexto.email}</p>
 
                 <Button isNew title="Entrar" />
 
