@@ -36,6 +36,16 @@ function AuthProvider({children}){
        }
     }
 
+
+    function logout(){
+        localStorage.removeItem("@moviesnotes:token")
+        localStorage.removeItem("@moviesnotes:user")
+
+
+        // mudar o estado para vazio
+        setData({})
+    }
+
     useEffect(() => {
         const token = localStorage.getItem("@moviesnotes:token")
         const user = localStorage.getItem("@moviesnotes:user")
@@ -52,9 +62,9 @@ function AuthProvider({children}){
         }
    }, [])
 
-   
+
     return(
-        <AuthContext.Provider value={{ login, user: data.user }}>
+        <AuthContext.Provider value={{ login, logout, user: data.user }}>
             {children}
         </AuthContext.Provider>
     )
