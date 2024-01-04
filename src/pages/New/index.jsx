@@ -21,6 +21,13 @@ export function New(){
     }
 
 
+    function handleRemoveTag(deleted){
+
+        // filter retorn um nova listagem sem a tag deletada
+        setTags(state => state.filter(tag => tag != deleted))
+    }
+
+
     return(
         <Container>
             <Header />
@@ -49,7 +56,7 @@ export function New(){
                         <div className="tags">
                             {
                                 tags.map((tag, index) => (
-                                    <Marcador key={index} value={tag} onClick={()=>{}} />
+                                    <Marcador key={index} value={tag} onClick={()=>{handleRemoveTag(tag)}} />
                                     
                                 ))
                                 
