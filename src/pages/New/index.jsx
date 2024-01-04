@@ -6,10 +6,21 @@ import { FiArrowLeft } from "react-icons/fi";
 import { Textarea } from "../../components/Textarea";
 import { Button} from "../../components/Button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 
 export function New(){
+
+    const [ tags, setTags] = useState([])
+    const [ newTag, setNewTag] = useState("")
+
+    function handleAddTag(){
+        setTags(state => [...state, newTag])
+        setNewTag("")
+    }
+
+
     return(
         <Container>
             <Header />
@@ -36,11 +47,15 @@ export function New(){
                         <h2>Marcadores</h2>
 
                         <div className="tags">
-                            <Marcador value="Ficção científica"  />
-                            <Marcador value="Ficção"  />
-                            <Marcador value="Terror"  />
-                            <Marcador value="Ação"  />
-                            <Marcador isNew placeholder="Novo marcador" />
+                            {
+                                tags.map((tag, index) => (
+                                    <Marcador key={index} value={tag} onClick={()=>{}} />
+                                    
+                                ))
+                                
+                            }
+                            
+                            <Marcador isNew placeholder="Novo marcador" onChange={ e => setNewTag(e.target.value)} value={newTag} onClick={handleAddTag} />
                         </div>
                     </div>
 
