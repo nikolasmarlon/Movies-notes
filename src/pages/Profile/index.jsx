@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 export function Profile(){
 
-    const { user } = useAuth()
+    const { user, updateProfile } = useAuth()
 
     const [name, setName ] = useState(user.name)
     const [email, setEmail ] = useState(user.email)
@@ -18,6 +18,20 @@ export function Profile(){
     const [passwordNew, setPasswordNew ] = useState()
     
 
+
+    async function handleUpdate(){
+
+
+        const user = {
+            name,
+
+            email,
+            password: passwordNew,
+            old_password: passwordOld,
+        }
+
+        await updateProfile({user})
+    }
 
     return(
         <DivContainer>
@@ -44,7 +58,7 @@ export function Profile(){
                 <Input type="password" icon={FiLock} placeholder="Senha atual" onChange={e => setPasswordOld( e.target.value) } />
                 <Input type="password" icon={FiLock} placeholder="Nova senha" onChange={e => setPasswordNew( e.target.value) } />
 
-                <Button title="Salvar" />
+                <Button title="Salvar" onClick={handleUpdate} />
 
             </Form>
         </DivContainer>

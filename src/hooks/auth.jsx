@@ -46,6 +46,24 @@ function AuthProvider({children}){
         setData({})
     }
 
+    async function updateProfile({ user }){
+        try {
+            await api.put('/users', user)
+
+            localStorage.setItem("@moviesnotes:user", JSON.stringify(user))
+
+            setData({ user, token: data.token})
+            alert("Perfil atualizado")
+
+        } catch (error) {
+            if(error.response){
+                alert(error.response.data.message)
+            } else{
+                alert("Não foi possível atualizar o perfil!")
+            }
+        }
+    }
+
     useEffect(() => {
         const token = localStorage.getItem("@moviesnotes:token")
         const user = localStorage.getItem("@moviesnotes:user")
@@ -64,7 +82,7 @@ function AuthProvider({children}){
 
 
     return(
-        <AuthContext.Provider value={{ login, logout, user: data.user }}>
+        <AuthContext.Provider value={{ login, logout, updateProfile, user: data.user }}>
             {children}
         </AuthContext.Provider>
     )
