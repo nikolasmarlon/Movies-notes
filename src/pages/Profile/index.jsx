@@ -24,7 +24,6 @@ export function Profile(){
 
         const user = {
             name,
-
             email,
             password: passwordNew,
             old_password: passwordOld,

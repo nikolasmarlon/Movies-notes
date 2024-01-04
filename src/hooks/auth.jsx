@@ -53,6 +53,7 @@ function AuthProvider({children}){
             localStorage.setItem("@moviesnotes:user", JSON.stringify(user))
 
             setData({ user, token: data.token})
+
             alert("Perfil atualizado")
 
         } catch (error) {
@@ -76,7 +77,7 @@ function AuthProvider({children}){
                 token,
                 user: JSON.parse(user)
             })
-            console.log(user, token)
+            
         }
    }, [])
 
