@@ -47,6 +47,15 @@ export function New(){
             return alert('A nota dever ser um valor de 0 e 5')
         }
 
+        // verificar campos vazios
+        if(!title || !description || !rating){
+            return alert("Prencha todos os campos")
+        }
+        if(!tags){
+            return alert("Adicione ao menos um marcador")
+        }
+        
+
 
 
         await api.post("/movie", {
