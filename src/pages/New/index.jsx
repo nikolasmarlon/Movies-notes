@@ -36,6 +36,19 @@ export function New(){
     const navigate = useNavigate()
 
     async function handleNewMovieNote(){
+
+        // verificação marcador
+        if(newTag){
+            return alert("Clique em adicionar marcador")
+        }
+
+        // verificar nota 
+        if(rating > 5 || rating < 0){
+            return alert('A nota dever ser um valor de 0 e 5')
+        }
+
+
+
         await api.post("/movie", {
             title,
             rating,
@@ -65,11 +78,11 @@ export function New(){
                     </header>
 
                     <div>
-                        <Input type="text" placeholder="Título" onChange={e => setTitle(e.target.value)} />
-                        <Input type="text" placeholder="Sua nota(de 0 a 5)" onChange={e => setRating(e.target.value)} />
+                        <Input required type="text" placeholder="Título" onChange={e => setTitle(e.target.value)} />
+                        <Input required type="number" min="0" max="5" placeholder="Sua nota(de 0 a 5)" onChange={e => setRating(e.target.value)} />
                     </div>
 
-                    <Textarea type="textarea" placeholder="Observações" onChange={e => setDescription(e.target.value)} />
+                    <Textarea required type="textarea" placeholder="Observações" onChange={e => setDescription(e.target.value)} />
 
                     <div id="marcadores">
                         <h2>Marcadores</h2>
