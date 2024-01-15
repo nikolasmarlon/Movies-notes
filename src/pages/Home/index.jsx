@@ -9,14 +9,9 @@ import { useAuth } from "../../hooks/auth";
 
 export function Home(){
 
-    const { search } = useAuth()
-    
+    const { search } = useAuth()    
    
-    const [movies, setMovies] = useState([]);
-
-
-    
-
+    const [movies, setMovies] = useState([]);  
 
     useEffect( () => { 
         async function fetchMovies(){
@@ -46,9 +41,7 @@ export function Home(){
                     {
                         movies.map( movie => (
                             <Movie key={String(movie.id)} data={movie} /> 
-                        ))
-                                     
-                        
+                        ))                        
                     }
                 </Content>  
             </main>
