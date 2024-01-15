@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useState } from "react";
 
+// importando o contexto 
 import { useAuth } from "../../hooks/auth";
 
 
@@ -16,8 +17,8 @@ export function Login(){
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
 
-    // desestruturação contexto 
-    const { login }= useAuth()  
+    // desestruturação contexto para pegar a função que está no contexto
+    const { login } = useAuth()  
 
     // Lidar com login(do contexto)
     function handleLogin(){

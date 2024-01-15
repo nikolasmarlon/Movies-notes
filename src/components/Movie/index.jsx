@@ -13,25 +13,26 @@ export function Movie ({ data, ...rest }) {
             <div>
 
                 {
-                    data.note &&                    
+                    data.rating &&                    
                     <div>
                         {
-                            <StarRating nota={data.note} tamanho={18} />
+                            <StarRating nota={data.rating} tamanho={18} />
                         }
                     </div>                    
                 }
             </div>
 
             <p>
-                {data.description}
+                {data.description} 
             </p>  
 
 
             {
-                data.tags &&
+                data.movie_tags &&
                 <footer>
                     {
-                        data.tags.map( tag =>  <Tag key={tag.id} title={tag.name} />)
+                        data.movie_tags.map( tag =>  <Tag key={tag.id} title={tag.name} />)
+                        
                     }
                 </footer>
             }

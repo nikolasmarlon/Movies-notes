@@ -9,14 +9,21 @@ import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
 export function Header (){
 
-    const { logout, user } = useAuth()
+    const { logout, user, updateSearchQuery, search } = useAuth()
 
 
+    // atualiza a URl do avatar
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
+
+    // lidar com a pesquisa
+    const handleSearchChange = (e) => {
+        updateSearchQuery(e.target.value);
+    }
+
 
     return(
         <HeaderContainer>
-            <Search type="search" placeholder="Pesquise pelo título" />
+            <Search type="search" placeholder="Pesquise pelo título" onChange={handleSearchChange} />
 
             <Profile to="/profile">
                 <div>

@@ -2,11 +2,16 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 import { api } from "../services/api";
 
+
+
+// contexto para compartilhar com a aplicação
 export const AuthContext = createContext({})
 
 function AuthProvider({children}){
 
     const [data, setData] = useState({})
+
+    const [ search, setSearch ] = useState("")
 
 
     async function login({ email, password }){
@@ -80,6 +85,11 @@ function AuthProvider({children}){
         }
     }
 
+    function updateSearchQuery(query){
+        setSearch(query)
+    }
+    
+
     useEffect(() => {
         const token = localStorage.getItem("@moviesnotes:token")
         const user = localStorage.getItem("@moviesnotes:user")
@@ -97,15 +107,18 @@ function AuthProvider({children}){
    }, [])
 
 
+   // children vai ser as rotas da aplicação no arquivo app.js
     return(
-        <AuthContext.Provider value={{ login, logout, updateProfile, user: data.user }}>
-            {children}
+        <AuthContext.Provider value={{ login, logout, updateProfile, updateSearchQuery, user: data.user, search }}>
+            {children} 
         </AuthContext.Provider>
     )
 }
 
+
+// use context
 function useAuth(){
-    const context = useContext(AuthContext)
+    const context = useContext(AuthContext) // contexto criado acima ( topo )
 
     return context
 }
