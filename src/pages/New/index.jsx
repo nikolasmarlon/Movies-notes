@@ -37,25 +37,27 @@ export function New(){
 
     async function handleNewMovieNote(){
 
-        // verificação marcador
-        if(newTag){
-            return alert("Clique em adicionar marcador")
+        
+        // verificar campos vazios
+        if(!title || !description || !rating ){
+            return alert("Prencha todos os campos")
+            
         }
-
         // verificar nota 
         if(rating > 5 || rating < 0){
             return alert('A nota dever ser um valor de 0 e 5')
         }
-
-        // verificar campos vazios
-        if(!title || !description || !rating){
-            return alert("Prencha todos os campos")
-        }
-        if(!tags){
+        
+        if(tags.length === 0){
+            console.log(tags)
             return alert("Adicione ao menos um marcador")
         }
         
-
+        // verificação marcador
+        if(newTag){
+            return alert("Clique em adicionar marcador")
+        }
+        
 
 
         await api.post("/movie", {

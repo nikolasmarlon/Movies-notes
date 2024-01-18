@@ -43,6 +43,7 @@ export const  DivContainer = styled.div`
 ` 
 
 export const Content = styled.div`
+    
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -101,6 +102,20 @@ export const Content = styled.div`
                 color: ${( {theme} ) => theme.COLORS.RED_300};
                 
             }
+        }
+
+       
+        
+    }
+
+    #rodape{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+
+        > button{
+            width: 50%;
+            
         }
         
     }

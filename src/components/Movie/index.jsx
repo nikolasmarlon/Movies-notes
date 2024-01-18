@@ -3,7 +3,24 @@ import { AiFillStar, AiOutlineStar, AiOutlineClockCircle, AiOutlineArrowLeft} fr
 import { Tag } from "../Tag";
 import { StarRating } from "../StarRating";
 
+
+
+
+
+
 export function Movie ({ data, ...rest }) {
+
+
+    // Função auxiliar para limitar o número de palavras em uma string
+    const limitarPalavras = (texto, limite) => {
+        const palavras = texto.split(' ');
+        const resumo = palavras.slice(0, limite).join(' ');
+        return `${resumo}...`;
+    }
+
+    const descricaoResumida = limitarPalavras(data.description, 50);
+
+
     return(
         <Container {...rest}>
 
@@ -23,7 +40,7 @@ export function Movie ({ data, ...rest }) {
             </div>
 
             <p>
-                {data.description} 
+                {descricaoResumida} 
             </p>  
 
 
@@ -31,7 +48,7 @@ export function Movie ({ data, ...rest }) {
                 data.movie_tags &&
                 <footer>
                     {
-                        data.movie_tags.map( tag =>  <Tag key={tag.id} title={tag.name} />)
+                        data.movie_tags.map( tag =>  <Tag key={String(tag.id)} title={tag.name} />)
                         
                     }
                 </footer>
