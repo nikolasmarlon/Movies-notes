@@ -14,6 +14,8 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Button } from "../../components/Button";
 
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
+
 export function MoviePreview(){
 
     const params = useParams()

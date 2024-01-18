@@ -36,14 +36,16 @@ export function Profile(){
     async function handleUpdate(){
 
 
-        const user = {
+        const updated  = {
             name,
             email,
             password: passwordNew,
             old_password: passwordOld,
         }
 
-        await updateProfile({user, avatarFile})
+        const userUpdated = Object.assign(user, updated)
+
+        await updateProfile({user: userUpdated, avatarFile})
     }
 
     const navigate = useNavigate()
