@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FiArrowLeft, FiCamera, FiLock, FiMail, FiUser } from "react-icons/fi";
 import { Avatar, DivContainer, Form } from "./styles";
+import { ButtonText } from "../../components/ButtonText";
 
 import { api } from "../../services/api";
 
@@ -8,10 +9,12 @@ import { useAuth } from '../../hooks/auth'
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
-import { Link } from "react-router-dom";
+
+import { useNavigate } from 'react-router-dom'
 
 
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export function Profile(){
 
@@ -43,6 +46,12 @@ export function Profile(){
         await updateProfile({user, avatarFile})
     }
 
+    const navigate = useNavigate()
+    
+    function handleBack(){
+        navigate(-1)
+    }
+
     function handleChangeAvatar(event) {
         const file = event.target.files[0]
 
@@ -57,10 +66,7 @@ export function Profile(){
     return(
         <DivContainer>
             <header>
-                <Link to="/">
-                    <FiArrowLeft/>
-                    Voltar
-                </Link>
+                <ButtonText onClick={handleBack} icon={AiOutlineArrowLeft} title="Voltar" />
             </header>
 
             <Form>
@@ -79,7 +85,7 @@ export function Profile(){
                 <Input type="password" icon={FiLock} placeholder="Senha atual" onChange={e => setPasswordOld( e.target.value) } />
                 <Input type="password" icon={FiLock} placeholder="Nova senha" onChange={e => setPasswordNew( e.target.value) } />
 
-                <Button title="Salvar" onClick={handleUpdate} />
+                <Button isNew title="Salvar" onClick={handleUpdate} />
 
             </Form>
         </DivContainer>

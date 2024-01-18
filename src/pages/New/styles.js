@@ -76,7 +76,7 @@ export const Form = styled.form`
         gap: 24px;
         margin-bottom: 40px;
 
-        >a{
+        >button{
             display: flex;   
             align-items: center ;
             gap: 8px;            

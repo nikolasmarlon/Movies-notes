@@ -2,13 +2,15 @@ import { Header } from "../../components/Header";
 import { Marcador } from "../../components/Marcador";
 import { Input } from "../../components/Input";
 import { Container, Form } from "./styles";
-import { FiArrowLeft } from "react-icons/fi";
+
 import { Textarea } from "../../components/Textarea";
 import { Button} from "../../components/Button";
-import { Link } from "react-router-dom";
+
 import { useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from 'react-router-dom'
+import { ButtonText } from "../../components/ButtonText";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 
 
@@ -26,15 +28,19 @@ export function New(){
         setNewTag("")
     }
 
-
+    
+    
     function handleRemoveTag(deleted){
-
+        
         // filter retorn um nova listagem sem a tag deletada
         setTags(state => state.filter(tag => tag != deleted))
     }
-
+    
     const navigate = useNavigate()
-
+    
+    function handleBack(){
+        navigate(-1)
+    }
     async function handleNewMovieNote(){
 
         
@@ -68,7 +74,7 @@ export function New(){
         })
 
         alert("Filme cadastrado com sucesso!")
-        navigate('/')
+        navigate(-1)
         
     }
 
@@ -81,10 +87,8 @@ export function New(){
 
                 <Form>
                     <header>
-                    <Link to="/">
-                        <FiArrowLeft/>
-                        Voltar
-                    </Link>
+                        <ButtonText onClick={handleBack} icon={AiOutlineArrowLeft} title="Voltar" /> 
+
                         <h1>Novo Filme</h1>
                     </header>
 
