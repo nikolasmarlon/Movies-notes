@@ -5,22 +5,30 @@ import { FiPlus } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom"
 
 
 export function Home(){
 
     const { search } = useAuth()    
    
+  
     const [movies, setMovies] = useState([]);  
+
+    const navigate = useNavigate()
+
+    function handleDetails(id){        
+        navigate(`/details/${id}`)
+    }
 
     useEffect( () => { 
         async function fetchMovies(){
-            const response = await api.get(`/movie?title=${search}&tags${search}`)
+            const response = await api.get(`/movie?title=${search}`)
             setMovies(response.data.movieNotesWithTags)
         }
 
         fetchMovies()
-    }, [ search ])
+    }, [ search])
 
     return(
         <Container>
@@ -40,7 +48,7 @@ export function Home(){
                     
                     {
                         movies.map( movie => (
-                            <Movie key={String(movie.id)} data={movie} /> 
+                            <Movie key={String(movie.id)} data={movie} onClick={() => handleDetails(movie.id)} /> 
                         ))                        
                     }
                 </Content>  

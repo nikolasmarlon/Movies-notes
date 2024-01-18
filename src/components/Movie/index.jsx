@@ -5,7 +5,7 @@ import { StarRating } from "../StarRating";
 
 export function Movie ({ data, ...rest }) {
     return(
-        <Container>
+        <Container {...rest}>
 
             
 
