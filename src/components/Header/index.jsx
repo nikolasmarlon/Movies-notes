@@ -5,11 +5,23 @@ import { api } from "../../services/api";
 
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
+import { useNavigate } from 'react-router-dom'
+
 
 
 export function Header (){
 
     const { logout, user, updateSearchQuery, search } = useAuth()
+
+
+    const navigate = useNavigate()
+
+
+    // Lidar com logout
+    function handleLogout(){
+        navigate("/")
+        logout()
+    }
 
 
     // atualiza a URl do avatar
@@ -28,7 +40,7 @@ export function Header (){
             <Profile to="/profile">
                 <div>
                     <strong>{user.name}</strong>
-                    <button onClick={logout}>sair</button>
+                    <button onClick={handleLogout}>sair</button>
                 </div>
                 <img src={avatarUrl}  alt={user.name} />
             </Profile>
