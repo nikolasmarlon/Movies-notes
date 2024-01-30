@@ -1,5 +1,5 @@
 import { HeaderContainer, Profile, Search } from "./styles";
-
+import { useEffect, useRef } from 'react'; // Importe o useEffect e useRef
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
 
@@ -13,6 +13,7 @@ export function Header (){
 
     const { logout, user, updateSearchQuery, search } = useAuth()
 
+    const searchInputRef = useRef(null);
 
     const navigate = useNavigate()
 
@@ -29,13 +30,22 @@ export function Header (){
 
     // lidar com a pesquisa
     const handleSearchChange = (e) => {
+        navigate("/")
         updateSearchQuery(e.target.value);
     }
 
 
+    // Focar no campo de pesquisa quando a página é redirecionada
+    useEffect(() => {
+        if (searchInputRef.current) {
+            searchInputRef.current.focus();
+        }
+    }, [search]);
+
+
     return(
         <HeaderContainer>
-            <Search type="search" placeholder="Pesquise pelo título" onChange={handleSearchChange} />
+            <Search  ref={searchInputRef} value={search} type="search" placeholder="Pesquise pelo título" onChange={handleSearchChange} />
 
             <Profile to="/profile">
                 <div>
